@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Gupta — Selected Product Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1c1e;
+    --ink-soft:#4a4f55;
+    --line:#e3e0d8;
+    --paper:#faf8f3;
+    --panel:#ffffff;
+    --accent:#1f6f5c;
+    --accent-soft:#e8f0ec;
+    --amber:#b5722a;
+    --amber-soft:#f6ecdf;
+    --radius:14px;
+    --maxw:860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:14px;color:var(--accent);font-weight:600;margin:0 0 14px;}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0 0 18px;}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:64ch;margin:0 0 26px;}
+  .contact{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;}
+  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;}
+  .contact a:hover{border-color:var(--accent);color:var(--accent);}
+
+  .impact{padding:38px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .metric .num{font-family:'Fraunces',Georgia,serif;font-size:29px;font-weight:600;color:var(--accent);line-height:1;}
+  .metric .lbl{font-size:13.5px;color:var(--ink-soft);margin-top:8px;line-height:1.35;}
+  @media(max-width:640px){.impact{grid-template-columns:repeat(2,1fr);gap:26px 20px;}}
+
+  section.projects{padding:52px 0 20px;}
+  .kicker{font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin:0 0 30px;color:var(--ink);}
+  .project{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:34px 32px;margin-bottom:26px;}
+  .project-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+  .project h3{font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0;letter-spacing:-.01em;}
+  .tag{font-size:12.5px;color:var(--accent);background:var(--accent-soft);padding:4px 11px;border-radius:100px;font-weight:500;white-space:nowrap;}
+  .role{font-size:14px;color:var(--amber);font-weight:500;margin:0 0 20px;}
+  .block{margin:16px 0;}
+  .block .h{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 4px;}
+  .block p{margin:0;color:var(--ink-soft);font-size:16px;}
+
+  /* architecture figure */
+  figure.arch{margin:26px 0 6px;padding:24px 20px 16px;background:var(--paper);border:1px solid var(--line);border-radius:10px;}
+  figure.arch svg{width:100%;height:auto;display:block;}
+  figcaption{font-size:13px;color:var(--ink-soft);margin-top:12px;text-align:center;font-style:italic;}
+
+  /* decisions */
+  .decisions{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);}
+  .decisions .dh{font-size:13px;font-weight:600;margin:0 0 12px;color:var(--ink);}
+  .decision{margin-bottom:14px;}
+  .decision .q{font-weight:600;font-size:15px;color:var(--ink);margin:0 0 2px;}
+  .decision .a{font-size:15px;color:var(--ink-soft);margin:0;}
+
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .chip{font-size:13px;color:var(--ink-soft);border:1px solid var(--line);padding:4px 11px;border-radius:6px;background:var(--paper);}
+
+  section.more{padding:20px 0 40px;}
+  ul.wins{list-style:none;padding:0;margin:0;}
+  ul.wins li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:baseline;color:var(--ink-soft);font-size:16px;}
+  ul.wins li:last-child{border-bottom:none;}
+  ul.wins .w{color:var(--accent);font-weight:600;font-family:'Fraunces',serif;white-space:nowrap;min-width:96px;}
+
+  footer{padding:36px 0 64px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft);}
+  footer a{color:var(--accent);text-decoration:none;}
+
+  /* svg helpers */
+  .node{fill:#fff;stroke:#cfd8d2;stroke-width:1.5;}
+  .node-accent{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5;}
+  .node-amber{fill:var(--amber-soft);stroke:var(--amber);stroke-width:1.5;}
+  .lbl-b{font:600 13px 'Inter',sans-serif;fill:var(--ink);}
+  .lbl-s{font:400 11px 'Inter',sans-serif;fill:var(--ink-soft);}
+  .flow{stroke:#b9c2bc;stroke-width:1.6;fill:none;}
+  .flow-a{stroke:var(--accent);stroke-width:1.8;fill:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Product Manager · B2B SaaS · Salesforce ecosystem</p>
+    <h1>Yash Gupta</h1>
+    <p class="lede">I own products end to end and build the technical ones hands-on — directing the engineering myself. Below are two AI systems I designed and shipped, with the architecture and the real trade-offs behind them. All content is generalised to respect confidentiality.</p>
+    <div class="contact">
+      <a href="mailto:yashgupta2896@gmail.com">yashgupta2896@gmail.com</a>
+      <a href="https://www.linkedin.com/in/yashg23/">linkedin.com/in/yashg23</a>
+      <span>MBA — IIT Kanpur</span>
+    </div>
+  </header>
+
+  <div class="impact">
+    <div class="metric"><div class="num">+62%</div><div class="lbl">Enterprise seat adoption (40 → 65)</div></div>
+    <div class="metric"><div class="num">$4.2M→$6M</div><div class="lbl">Portfolio growth via pricing &amp; packaging</div></div>
+    <div class="metric"><div class="num">~594 hrs</div><div class="lbl">Saved per year automating QA regression</div></div>
+    <div class="metric"><div class="num">0</div><div class="lbl">Critical issues across launches led</div></div>
+  </div>
+
+  <section class="projects">
+    <p class="kicker">Two systems I designed and built</p>
+
+    <!-- ===================== PROJECT 1: RAG ADVISOR ===================== -->
+    <div class="project">
+      <div class="project-head">
+        <h3>AI Implementation Assistant</h3>
+        <span class="tag">Shipped · in daily use</span>
+      </div>
+      <p class="role">My role: owned the architecture, retrieval design, and security &amp; privacy layers; directed engineering end to end.</p>
+
+      <div class="block">
+        <div class="h">Problem</div>
+        <p>Implementation, support, and sales teams lost significant time searching across 200+ documents, recorded calls, and product videos to answer recurring questions — with inconsistent answers.</p>
+      </div>
+      <div class="block">
+        <div class="h">What I built</div>
+        <p>A production Retrieval-Augmented Generation (RAG) assistant. Content is chunked, embedded, and stored in a vector database; a query runs hybrid (semantic + keyword) retrieval, and an answering model responds grounded only in retrieved context. Access is invite-only, with rate limiting, input sanitisation, and a server-side privacy layer that strips any customer-identifying detail before a response leaves the server.</p>
+      </div>
+
+      <figure class="arch" aria-label="RAG assistant architecture diagram">
+        <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img">
+          <!-- INGESTION ROW -->
+          <text x="20" y="30" class="lbl-s">INGESTION (offline)</text>
+          <rect x="20" y="42" width="150" height="46" rx="8" class="node"/>
+          <text x="95" y="64" text-anchor="middle" class="lbl-b">Sources</text>
+          <text x="95" y="80" text-anchor="middle" class="lbl-s">docs · calls · video</text>
+
+          <rect x="210" y="42" width="150" height="46" rx="8" class="node"/>
+          <text x="285" y="64" text-anchor="middle" class="lbl-b">Chunk + embed</text>
+          <text x="285" y="80" text-anchor="middle" class="lbl-s">Gemini embeddings</text>
+
+          <rect x="400" y="42" width="150" height="46" rx="8" class="node-accent"/>
+          <text x="475" y="64" text-anchor="middle" class="lbl-b">Vector DB</text>
+          <text x="475" y="80" text-anchor="middle" class="lbl-s">pgvector</text>
+
+          <line x1="170" y1="65" x2="208" y2="65" class="flow" marker-end="url(#ar)"/>
+          <line x1="360" y1="65" x2="398" y2="65" class="flow" marker-end="url(#ar)"/>
+
+          <!-- QUERY ROW -->
+          <text x="20" y="150" class="lbl-s">QUERY (live)</text>
+          <rect x="20" y="162" width="150" height="46" rx="8" class="node"/>
+          <text x="95" y="184" text-anchor="middle" class="lbl-b">User question</text>
+          <text x="95" y="200" text-anchor="middle" class="lbl-s">auth · rate limit</text>
+
+          <rect x="210" y="162" width="150" height="46" rx="8" class="node"/>
+          <text x="285" y="180" text-anchor="middle" class="lbl-b">Hybrid retrieval</text>
+          <text x="285" y="195" text-anchor="middle" class="lbl-s">semantic + keyword</text>
+          <text x="285" y="203" text-anchor="middle" class="lbl-s">threshold + retry</text>
+
+          <rect x="400" y="162" width="150" height="46" rx="8" class="node"/>
+          <text x="475" y="184" text-anchor="middle" class="lbl-b">Answering LLM</text>
+          <text x="475" y="200" text-anchor="middle" class="lbl-s">grounded in context</text>
+
+          <rect x="590" y="162" width="150" height="46" rx="8" class="node-amber"/>
+          <text x="665" y="180" text-anchor="middle" class="lbl-b">Privacy layer</text>
+          <text x="665" y="195" text-anchor="middle" class="lbl-s">strip identifiers</text>
+          <text x="665" y="203" text-anchor="middle" class="lbl-s">before response</text>
+
+          <line x1="170" y1="185" x2="208" y2="185" class="flow-a" marker-end="url(#ara)"/>
+          <line x1="360" y1="185" x2="398" y2="185" class="flow-a" marker-end="url(#ara)"/>
+          <line x1="550" y1="185" x2="588" y2="185" class="flow-a" marker-end="url(#ara)"/>
+
+          <!-- vector db feeds retrieval -->
+          <path d="M475 88 L475 120 L285 120 L285 160" class="flow" marker-end="url(#ar)"/>
+          <text x="330" y="114" class="lbl-s">retrieved chunks</text>
+
+          <!-- answer out -->
+          <path d="M665 208 L665 250 L95 250 L95 250" class="flow-a"/>
+          <circle cx="95" cy="250" r="4" fill="var(--accent)"/>
+          <text x="360" y="245" text-anchor="middle" class="lbl-s">grounded, identifier-free answer returned to user</text>
+
+          <defs>
+            <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#b9c2bc" stroke-width="1.4"/></marker>
+            <marker id="ara" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--accent)" stroke-width="1.6"/></marker>
+          </defs>
+        </svg>
+        <figcaption>Retrieval-grounded answering with a server-side privacy layer on the response path.</figcaption>
+      </figure>
+
+      <div class="decisions">
+        <div class="dh">Key decisions &amp; trade-offs</div>
+        <div class="decision">
+          <p class="q">Privacy enforced in the pipeline, not just the prompt.</p>
+          <p class="a">Prompt instructions alone leaked occasionally — dominant source context can override an instruction. So identifier-stripping is enforced server-side on the response, making it deterministic rather than probabilistic.</p>
+        </div>
+        <div class="decision">
+          <p class="q">Didn't just widen retrieval to fix answer quality.</p>
+          <p class="a">Raising top-k adds noise and models get "lost in the middle." I prioritised retrieval quality (hybrid search, thresholding, a QA eval set to measure every change) over brute-force recall.</p>
+        </div>
+        <div class="decision">
+          <p class="q">Sequenced the hard rebuild for launch, not now.</p>
+          <p class="a">A full data-layer re-processing would improve quality but is a pre-launch investment with real cost and risk. I shipped the lower-risk path first and scheduled the deeper fix against an eval set — avoiding premature optimisation.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <span class="chip">Next.js</span>
+        <span class="chip">pgvector</span>
+        <span class="chip">Gemini embeddings</span>
+        <span class="chip">RAG</span>
+        <span class="chip">Hybrid search</span>
+        <span class="chip">Auth · RLS · rate limiting</span>
+      </div>
+    </div>
+
+    <!-- ===================== PROJECT 2: ATLAS ===================== -->
+    <div class="project">
+      <div class="project-head">
+        <h3>Automated Competitive-Intelligence System</h3>
+        <span class="tag">Shipped · rolling out</span>
+      </div>
+      <p class="role">My role: owned the thesis, architecture, classification design, and rollout across functional teams.</p>
+
+      <div class="block">
+        <div class="h">Problem</div>
+        <p>Competitive tracking was manual, inconsistent, and always out of date — leaving product, sales, and GTM decisions under-informed.</p>
+      </div>
+      <div class="block">
+        <div class="h">What I built</div>
+        <p>A scheduled pipeline that collects from 25+ competitor sources daily, detects genuine changes via hash comparison (ignoring noise), classifies each change against a 214-capability taxonomy using a grounded contract that requires verbatim source quotes, then severity-routes findings (P0–P3) into the right output — priority alerts, a weekly digest, and a monthly rollup.</p>
+      </div>
+
+      <figure class="arch" aria-label="Competitive intelligence pipeline diagram">
+        <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect x="16" y="90" width="128" height="52" rx="8" class="node"/>
+          <text x="80" y="112" text-anchor="middle" class="lbl-b">Collect</text>
+          <text x="80" y="128" text-anchor="middle" class="lbl-s">25+ sources / day</text>
+
+          <rect x="176" y="90" width="128" height="52" rx="8" class="node"/>
+          <text x="240" y="112" text-anchor="middle" class="lbl-b">Detect change</text>
+          <text x="240" y="128" text-anchor="middle" class="lbl-s">hash-diff</text>
+
+          <rect x="336" y="90" width="128" height="52" rx="8" class="node-accent"/>
+          <text x="400" y="106" text-anchor="middle" class="lbl-b">Classify</text>
+          <text x="400" y="121" text-anchor="middle" class="lbl-s">214-cap taxonomy</text>
+          <text x="400" y="134" text-anchor="middle" class="lbl-s">verbatim-quote rule</text>
+
+          <rect x="496" y="90" width="128" height="52" rx="8" class="node-amber"/>
+          <text x="560" y="112" text-anchor="middle" class="lbl-b">Severity route</text>
+          <text x="560" y="128" text-anchor="middle" class="lbl-s">P0 – P3</text>
+
+          <line x1="144" y1="116" x2="174" y2="116" class="flow" marker-end="url(#ar2)"/>
+          <line x1="304" y1="116" x2="334" y2="116" class="flow" marker-end="url(#ar2)"/>
+          <line x1="464" y1="116" x2="494" y2="116" class="flow-a" marker-end="url(#ar2a)"/>
+
+          <!-- outputs -->
+          <rect x="656" y="36" width="96" height="34" rx="7" class="node"/>
+          <text x="704" y="57" text-anchor="middle" class="lbl-s">P0 alert</text>
+          <rect x="656" y="99" width="96" height="34" rx="7" class="node"/>
+          <text x="704" y="120" text-anchor="middle" class="lbl-s">Weekly digest</text>
+          <rect x="656" y="162" width="96" height="34" rx="7" class="node"/>
+          <text x="704" y="183" text-anchor="middle" class="lbl-s">Monthly rollup</text>
+
+          <path d="M624 108 L640 108 L640 53 L654 53" class="flow-a" marker-end="url(#ar2a)"/>
+          <path d="M624 116 L654 116" class="flow-a" marker-end="url(#ar2a)"/>
+          <path d="M624 124 L640 124 L640 179 L654 179" class="flow-a" marker-end="url(#ar2a)"/>
+
+          <defs>
+            <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#b9c2bc" stroke-width="1.4"/></marker>
+            <marker id="ar2a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--accent)" stroke-width="1.6"/></marker>
+          </defs>
+        </svg>
+        <figcaption>Runs daily on a schedule; only real changes flow through to classification and routing.</figcaption>
+      </figure>
+
+      <div class="decisions">
+        <div class="dh">Key decisions &amp; trade-offs</div>
+        <div class="decision">
+          <p class="q">Change-detection before classification.</p>
+          <p class="a">Classifying everything daily would be noisy and wasteful. Hash-diff means only genuine changes reach the model — cheaper, and it keeps the signal high.</p>
+        </div>
+        <div class="decision">
+          <p class="q">A grounding contract to stop hallucinated intel.</p>
+          <p class="a">Competitive claims have to be trustworthy, so every classification must cite a verbatim source quote. If it can't quote it, it doesn't report it.</p>
+        </div>
+        <div class="decision">
+          <p class="q">Severity routing so it drives action, not noise.</p>
+          <p class="a">Not every change deserves an alert. P0–P3 routing sends urgent moves to a priority channel and rolls the rest into digests — respecting the reader's attention.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <span class="chip">Python</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Gemini</span>
+        <span class="chip">SQLite</span>
+        <span class="chip">Change detection</span>
+        <span class="chip">Severity routing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="more">
+    <p class="kicker">Selected results across my PM work</p>
+    <ul class="wins">
+      <li><span class="w">+62%</span><span>Grew enterprise adoption from 40 to 65 seats and delivered $30K in custom enablement by turning live customer friction into prioritised, shipped features.</span></li>
+      <li><span class="w">$4.2M→$6M</span><span>Guided a product portfolio's growth through a bundle-based pricing and packaging redesign and competitor gap analysis.</span></li>
+      <li><span class="w">2d → 4h</span><span>Automated the QA regression process with test automation, cutting cycle time from two days to four hours (~594 hours saved annually).</span></li>
+      <li><span class="w">7 launches</span><span>Owned end-to-end monthly releases and feature launches for 1,500+ customers, shipping with zero critical post-release issues.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    Diagrams are simplified for clarity; deeper detail and a walkthrough available on request. All content is generalised — no customer names, data, or proprietary specifics included.
+    &nbsp;·&nbsp; <a href="mailto:yashgupta2896@gmail.com">Get in touch</a>
+  </footer>
+
+</div>
+</body>
+</html>
