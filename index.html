@@ -94,7 +94,7 @@
   <header>
     <p class="eyebrow">Product Manager · B2B SaaS · Salesforce ecosystem</p>
     <h1>Yash Gupta</h1>
-    <p class="lede">I own products end to end and build the technical ones hands-on — directing the engineering myself. Below are two AI systems I designed and shipped, with the architecture and the real trade-offs behind them. All content is generalised to respect confidentiality.</p>
+    <p class="lede">I own products end to end and build the technical ones hands-on — directing the engineering myself. Below are two AI systems I designed and shipped, plus a GTM launch I led — with the architecture and the real trade-offs behind them. All content is generalised to respect confidentiality.</p>
     <div class="contact">
       <a href="mailto:yashgupta2896@gmail.com">yashgupta2896@gmail.com</a>
       <a href="https://www.linkedin.com/in/yashg23/">linkedin.com/in/yashg23</a>
@@ -110,13 +110,13 @@
   </div>
 
   <section class="projects">
-    <p class="kicker">Two systems I designed and built</p>
+    <p class="kicker">What I've designed, built, and launched</p>
 
     <!-- ===================== PROJECT 1: RAG ADVISOR ===================== -->
     <div class="project">
       <div class="project-head">
         <h3>AI Implementation Assistant</h3>
-        <span class="tag">Shipped · in daily use</span>
+        <span class="tag">Shipped · in active use</span>
       </div>
       <p class="role">My role: owned the architecture, retrieval design, and security &amp; privacy layers; directed engineering end to end.</p>
 
@@ -126,7 +126,11 @@
       </div>
       <div class="block">
         <div class="h">What I built</div>
-        <p>A production Retrieval-Augmented Generation (RAG) assistant. Content is chunked, embedded, and stored in a vector database; a query runs hybrid (semantic + keyword) retrieval, and an answering model responds grounded only in retrieved context. Access is invite-only, with rate limiting, input sanitisation, and a server-side privacy layer that strips any customer-identifying detail before a response leaves the server.</p>
+        <p>A production Retrieval-Augmented Generation (RAG) assistant. Content is chunked, embedded, and stored in a vector database; a query runs hybrid (semantic + keyword) retrieval, and an answering model responds grounded only in retrieved context. Access is invite-only, with rate limiting, input sanitisation, and a server-side privacy layer that strips any customer-identifying detail before a response leaves the server. It also answers questions about uploaded screenshots (vision).</p>
+      </div>
+      <div class="block">
+        <div class="h">Impact</div>
+        <p>In active use across 7 functional teams (30+ members), with 1,000+ questions answered — 94% grounded in retrieved context, not free-form generation — replacing scattered manual lookups across 200+ sources with consistent, cited answers.</p>
       </div>
 
       <figure class="arch" aria-label="RAG assistant architecture diagram">
@@ -203,15 +207,21 @@
           <p class="q">Sequenced the hard rebuild for launch, not now.</p>
           <p class="a">A full data-layer re-processing would improve quality but is a pre-launch investment with real cost and risk. I shipped the lower-risk path first and scheduled the deeper fix against an eval set — avoiding premature optimisation.</p>
         </div>
+        <div class="decision">
+          <p class="q">Designed for resilience and cost: provider fallback + a confidence gate.</p>
+          <p class="a">The answering layer fails over across multiple LLM providers, so a single provider outage never takes the assistant down. A retrieval-confidence threshold routes low-confidence questions to a general-knowledge path instead of forcing a weak, hallucination-prone answer — a correct "not sure" beats a confident wrong one.</p>
+        </div>
       </div>
 
       <div class="stack">
-        <span class="chip">Next.js</span>
+        <span class="chip">FastAPI (Python)</span>
         <span class="chip">pgvector</span>
         <span class="chip">Gemini embeddings</span>
         <span class="chip">RAG</span>
         <span class="chip">Hybrid search</span>
-        <span class="chip">Auth · RLS · rate limiting</span>
+        <span class="chip">Multi-provider LLM fallback</span>
+        <span class="chip">Vision Q&amp;A</span>
+        <span class="chip">Auth · rate limiting · sanitisation</span>
       </div>
     </div>
 
@@ -230,6 +240,10 @@
       <div class="block">
         <div class="h">What I built</div>
         <p>A scheduled pipeline that collects from 25+ competitor sources daily, detects genuine changes via hash comparison (ignoring noise), classifies each change against a 214-capability taxonomy using a grounded contract that requires verbatim source quotes, then severity-routes findings (P0–P3) into the right output — priority alerts, a weekly digest, and a monthly rollup.</p>
+      </div>
+      <div class="block">
+        <div class="h">Impact</div>
+        <p>Fully automated on a schedule: 158 runs over ~6 weeks surfaced 90 signals — including 5 urgent (P0) alerts — from 50+ tracked sources (31 competitors across 3 tiers), replacing ~16 hrs/week of manual, inconsistent tracking. Now used across product, engineering, leadership, sales, and partner teams.</p>
       </div>
 
       <figure class="arch" aria-label="Competitive intelligence pipeline diagram">
@@ -279,7 +293,7 @@
         <div class="dh">Key decisions &amp; trade-offs</div>
         <div class="decision">
           <p class="q">Change-detection before classification.</p>
-          <p class="a">Classifying everything daily would be noisy and wasteful. Hash-diff means only genuine changes reach the model — cheaper, and it keeps the signal high.</p>
+          <p class="a">Classifying everything daily would be noisy and wasteful. In practice hash-diff filters ~90% of observations (≈3,965 unchanged vs. ≈428 new/changed) before the model runs — so only genuine changes reach classification, keeping cost low and signal high.</p>
         </div>
         <div class="decision">
           <p class="q">A grounding contract to stop hallucinated intel.</p>
@@ -298,6 +312,82 @@
         <span class="chip">SQLite</span>
         <span class="chip">Change detection</span>
         <span class="chip">Severity routing</span>
+      </div>
+    </div>
+
+    <!-- ===================== PROJECT 3: GTM LAUNCH ===================== -->
+    <div class="project">
+      <div class="project-head">
+        <h3>GTM Launch: Scheduler v2 &amp; Trigger Merge</h3>
+        <span class="tag">Shipped · zero critical issues</span>
+      </div>
+      <p class="role">My role: owned positioning &amp; messaging, the release plan, alpha/beta programmes, and sales &amp; support enablement.</p>
+
+      <div class="block">
+        <div class="h">Problem</div>
+        <p>Two major capabilities — a rebuilt Scheduler and event-based Trigger Merge — were ready for 1,500+ customers. Shipping them without clear positioning, phased validation, and enablement risked confused users, avoidable support load, and post-release fires.</p>
+      </div>
+      <div class="block">
+        <div class="h">What I did</div>
+        <p>Ran both launches end to end: sharpened the positioning and messaging, wrote the release notes, staged an alpha then a beta cohort to validate on a small blast radius before general availability, and enabled sales and support so every team could sell and troubleshoot from day one.</p>
+      </div>
+      <div class="block">
+        <div class="h">Impact</div>
+        <p>Both features shipped to 1,500+ customers with zero critical post-release issues, and support was equipped to answer customer questions on day one instead of escalating.</p>
+      </div>
+
+      <figure class="arch" aria-label="GTM launch phases">
+        <svg viewBox="0 0 760 110" xmlns="http://www.w3.org/2000/svg" role="img">
+          <rect x="6" y="34" width="128" height="50" rx="8" class="node"/>
+          <text x="70" y="55" text-anchor="middle" class="lbl-b">Positioning</text>
+          <text x="70" y="71" text-anchor="middle" class="lbl-s">&amp; messaging</text>
+
+          <rect x="162" y="34" width="128" height="50" rx="8" class="node"/>
+          <text x="226" y="55" text-anchor="middle" class="lbl-b">Alpha cohort</text>
+          <text x="226" y="71" text-anchor="middle" class="lbl-s">validate</text>
+
+          <rect x="318" y="34" width="128" height="50" rx="8" class="node"/>
+          <text x="382" y="55" text-anchor="middle" class="lbl-b">Beta cohort</text>
+          <text x="382" y="71" text-anchor="middle" class="lbl-s">expand</text>
+
+          <rect x="474" y="34" width="128" height="50" rx="8" class="node-accent"/>
+          <text x="538" y="55" text-anchor="middle" class="lbl-b">GA launch</text>
+          <text x="538" y="71" text-anchor="middle" class="lbl-s">1,500+ customers</text>
+
+          <rect x="630" y="34" width="124" height="50" rx="8" class="node-amber"/>
+          <text x="692" y="55" text-anchor="middle" class="lbl-b">Enablement</text>
+          <text x="692" y="71" text-anchor="middle" class="lbl-s">sales + support</text>
+
+          <line x1="134" y1="59" x2="160" y2="59" class="flow-a" marker-end="url(#ar3)"/>
+          <line x1="290" y1="59" x2="316" y2="59" class="flow-a" marker-end="url(#ar3)"/>
+          <line x1="446" y1="59" x2="472" y2="59" class="flow-a" marker-end="url(#ar3)"/>
+          <line x1="602" y1="59" x2="628" y2="59" class="flow-a" marker-end="url(#ar3)"/>
+
+          <defs>
+            <marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--accent)" stroke-width="1.6"/></marker>
+          </defs>
+        </svg>
+        <figcaption>Phased rollout: validate on a small cohort, expand, then launch with enablement in place.</figcaption>
+      </figure>
+
+      <div class="decisions">
+        <div class="dh">Key decisions &amp; trade-offs</div>
+        <div class="decision">
+          <p class="q">Phased rollout over a big-bang launch.</p>
+          <p class="a">Alpha then beta cohorts surfaced real-world issues on a small blast radius before GA — which is why both features shipped with zero critical post-release issues rather than firefighting after launch.</p>
+        </div>
+        <div class="decision">
+          <p class="q">Enablement is part of the launch, not an afterthought.</p>
+          <p class="a">Sales and support were trained and equipped before GA, so customer questions were handled on day one instead of turning into escalations and churn risk.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <span class="chip">Positioning &amp; messaging</span>
+        <span class="chip">Alpha / beta programme</span>
+        <span class="chip">Release notes</span>
+        <span class="chip">Sales &amp; support enablement</span>
+        <span class="chip">Jira</span>
       </div>
     </div>
   </section>
